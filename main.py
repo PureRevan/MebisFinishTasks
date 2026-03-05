@@ -1,8 +1,14 @@
-from WebDriverPy.driver import WebDriver, By, WebDriverWait
+from WebDriverPy.driver import WebDriver, By
 from sys import argv
+
+from getpass import getpass
 
 
 HEADLESS = False
+
+
+# Bundle (without binaries): pyinstaller main.py --onefile --clean --optimize 2 --hidden-import selenium.webdriver.chrome.webdriver
+# To bundle with included binaries, let the python script download the binaries and use: --add-data "WebDriverPy;WebDriverPy"
 
 
 if __name__ == '__main__':
@@ -24,7 +30,7 @@ if __name__ == '__main__':
 
     pwd = ""
     while not pwd:
-        pwd = driver.get_user_input("Mebis Passwort: ").strip()
+        pwd = getpass("Mebis Passwort: ").strip()
     print()
 
     driver.init()
@@ -76,7 +82,7 @@ if __name__ == '__main__':
     print()
     print("Alle durch Laden von Seiten erledigbaren Aufgaben sollten erledigt worden sein.")
 
-    close = driver.get_user_input("Sollen die anderen Tabs geschlossen werden? [y/N]").lower() == "y"
+    close = driver.get_user_input("Sollen die anderen Tabs geschlossen werden? [y/N] ").lower() == "y"
 
     if close:
         try:
@@ -89,4 +95,4 @@ if __name__ == '__main__':
     
     print()
     driver.wait_for_user_input("Fertig...")
-    driver.close()
+    driver.quit()

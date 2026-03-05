@@ -1,0 +1,15 @@
+.idea
+dist
+build
+release
+main.spec
+WebDriverPy/logs
+WebDriverPy/subpackages/PyProxies/data
+WebDriverPy/chrome_binary
+WebDriverPy/chromedriver.exe
+WebDriverPy/captures
+WebDriverPy/temp
+__pycache__
+WebDriverPy/__pycache__
+WebDriverPy/subpackages/__pycache__
+WebDriverPy/subpackages/PyProxies/__pycache__
